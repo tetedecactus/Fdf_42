@@ -6,26 +6,30 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/15 15:58:03 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/28 12:46:38 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-//#include "../minilibx_macos/mlx.h"
+//#include "../minilibx_macos/mlx_ptr.h"
 
 int	main(void)
 {
-	void	*mlx;
-	void	*mlx_win;
+	int i = 100;
+	void	*mlx_ptr;
+	void	*mlx_win_ptr;
 	t_data	img;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, WIDTH, HIGH, "FDF U FAT CUNT");
-	//while (i <= 700)
-		//mlx_pixel_put(mlx, mlx_win, i++, 700, 0x00FF0000);
-	img.img = mlx_new_image(mlx, WIDTH, HIGH);
+	mlx_ptr = mlx_init();
+	mlx_win_ptr = mlx_new_window(mlx_ptr, WIDTH, HIGH, "FDF FUCKERRRR");
+	img.img = mlx_new_image(mlx_ptr, WIDTH, HIGH);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length, &img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	my_mlx_pixel_put(&img, 500, 700, 0x00FF0000);
+	mlx_put_image_to_window(mlx_ptr, mlx_win_ptr, img.img, 0, 0);
+	mlx_loop(mlx_ptr);
+
+		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
+	
 }
+
+// gcc *.c -lmlx -framework OpenGL -framework AppKit && ./a.out
