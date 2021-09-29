@@ -6,32 +6,44 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/09/28 09:24:04 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/09/29 15:54:49 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Fdf
+FRAMEWORKS = -framework OpenGL -framework AppKit
+
+NAME = fdf
 
 SRCS = 	./srcs/fdf.c \
-		./srcs/minilibx_function.c 
+		./srcs/read_file.c \
+        ./srcs/minilibx_function.c \
+
+INCLUDES = ../libft/libft.a ./minilibx_macos/libmlx.a
 
 OBJS = ${SRCS:.c=.o}
-HEADER	= ./includes/fdf.h
-CC = gcc 
-FLAGS = -g -Wall -Wextra -Werror
 
-.c.o:
-		${CC} ${CFLAGS} -I ${HEADER} -c $< -o ${<:.c=.o} 
+HEADER	= ../includes/fdf.h
+
+CC = gcc 
+
+CFLAGS = -g -Wall -Wextra -Werror
 
 all: ${NAME}
 
 ${NAME}:${OBJS}
-		@${CC} ${OBJS} ${FLAGS} -o ${NAME}
+	    @make -C ../libft/
+		@make -C ./minilibx_macos/
+		@${CC} ${CFLAGS} ${FRAMEWORKS} ${OBJS}  -o ${NAME} ${INCLUDES} 
 
 clean: 
-		rm -f ${OBJS}
+		rm -f ${OBJS} 
+		@make clean -C ../libft/
+		@make clean -C ./minilibx_macos/
 fclean: clean
 		rm -f ${NAME}
+		@make fclean -C ../libft/
+
 re: fclean all
 
 .PHONY: clean fclean re all
+
