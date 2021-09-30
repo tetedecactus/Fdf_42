@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 15:18:26 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:05:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_map
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // Read fucntion
+void 	read_file(char *file_name, map data);
 int 	get_height(char *file_name);
 int 	get_width(char *file_name);
 

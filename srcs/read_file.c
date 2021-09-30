@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 15:47:12 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:06:06 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,8 @@ int get_width(char *file_name)
     return (width);
 }
 
-//void read_file(char *file_name, )
+void read_file(char *file_name, map data)
+{
+    data.height = get_height(file_name);
+    data.width = get_width(file_name);
+}

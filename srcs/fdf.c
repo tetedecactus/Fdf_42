@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 15:25:26 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 16:05:56 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,10 @@
 
 int	main(int argc, char **argv)
 {
-	char *file_name;
 	map map;
 	
-	
-	file_name = argv[1];
-	map.width = 0;
-	map.height = 0;
 	if (argc == 2)
-	{
-    	map.height = get_height(file_name);
-		map.width = get_width(file_name);	
-	}
+		read_file(argv[1], map);
     printf("height = %d\n", map.height);
     printf("width = %d\n", map.width);
 	
