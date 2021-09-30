@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 14:18:15 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:47:12 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ int get_height(char *file_name)
     
     fd = open(file_name, fd);
     height = 0;
-    while (get_next_line(fd, &line))
+    while (get_next_line(fd, &line) > 0)
     {
         height++;
         free(line);
     }
+    free(line);
     close(fd);
     return (height);
 }
@@ -50,3 +51,5 @@ int get_width(char *file_name)
     close(fd);
     return (width);
 }
+
+//void read_file(char *file_name, )

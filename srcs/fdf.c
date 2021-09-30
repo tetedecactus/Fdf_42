@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 10:12:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:25:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 int	main(int argc, char **argv)
 {
 	char *file_name;
-	int height;
-	int width;
+	map map;
+	
 	
 	file_name = argv[1];
-	width = 0;
-	height = 0;
+	map.width = 0;
+	map.height = 0;
 	if (argc == 2)
 	{
-    	height = get_height(file_name);
-		width = get_width(file_name);	
+    	map.height = get_height(file_name);
+		map.width = get_width(file_name);	
 	}
-    printf("height = %d\n", height);
-    printf("width = %d\n", width);
+    printf("height = %d\n", map.height);
+    printf("width = %d\n", map.width);
 	
 		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
 	return 0;

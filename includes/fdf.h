@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 09:17:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 15:18:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,13 @@ typedef struct	s_data
 	int		line_length;
 	int		endian;
 }				t_data;
+
+typedef struct s_map
+{
+	int width;
+	int height;
+	
+} map;
 
 // MiniLibX function
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
