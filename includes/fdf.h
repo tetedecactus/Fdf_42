@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/29 15:59:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 09:17:05 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <string.h>
 # include <limits.h>
 # include <mlx.h>
-# include "../../libft/libft.h"
+# include "../libft/libft.h"
 # include "../minilibx_macos/mlx.h"
 
 # define WIDTH 1920

@@ -6,15 +6,27 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/29 16:01:55 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 09:55:52 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 //#include "../minilibx_macos/mlx_ptr.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	char *file_name;
+	file_name = argv[1];
+	int height = 0;
+	if (argc == 2)
+    	height = get_height(file_name);
+    printf("%d\n", height);
+	
+		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
+	return 0;
+}
+
+// gcc *.c -lmlx -framework OpenGL -framework AppKit && ./a.out
 	//int i = 100;
 	// void	*mlx_ptr;
 	// void	*mlx_win_ptr;
@@ -27,14 +39,3 @@ int	main(void)
 	// my_mlx_pixel_put(&img, 500, 700, 0x00FF0000);
 	// mlx_put_image_to_window(mlx_ptr, mlx_win_ptr, img.img, 0, 0);
 	// mlx_loop(mlx_ptr);
-
-	int height = 0;
-
-    height = get_height("./test_maps/42.fdf");
-    printf("%d\n", height);
-
-		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
-	
-}
-
-// gcc *.c -lmlx -framework OpenGL -framework AppKit && ./a.out

@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/09/29 15:54:49 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/09/30 09:16:25 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ SRCS = 	./srcs/fdf.c \
 		./srcs/read_file.c \
         ./srcs/minilibx_function.c \
 
-INCLUDES = ../libft/libft.a ./minilibx_macos/libmlx.a
+INCLUDES = ./libft/libft.a ./minilibx_macos/libmlx.a
 
 OBJS = ${SRCS:.c=.o}
 
-HEADER	= ../includes/fdf.h
+HEADER	= ./includes/fdf.h
 
 CC = gcc 
 
@@ -31,17 +31,17 @@ CFLAGS = -g -Wall -Wextra -Werror
 all: ${NAME}
 
 ${NAME}:${OBJS}
-	    @make -C ../libft/
+	    @make -C ./libft/
 		@make -C ./minilibx_macos/
 		@${CC} ${CFLAGS} ${FRAMEWORKS} ${OBJS}  -o ${NAME} ${INCLUDES} 
 
 clean: 
 		rm -f ${OBJS} 
-		@make clean -C ../libft/
+		@make clean -C ./libft/
 		@make clean -C ./minilibx_macos/
 fclean: clean
 		rm -f ${NAME}
-		@make fclean -C ../libft/
+		@make fclean -C ./libft/
 
 re: fclean all
 
