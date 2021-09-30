@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 10:06:20 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/09/30 14:18:15 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int get_width(char *file_name)
     i = 0;
     while (line[i] != '\0')
     {
-        if (line[i] != ' ')
+        if (line[i] != ' ' && line[i] != '-')
             width++;
         i++;
     }    
