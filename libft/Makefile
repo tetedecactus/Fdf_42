@@ -44,6 +44,7 @@ SRCS = ft_atoi.c \
 		ft_toupper.c \
 		get_next_line.c \
 		free_arg.c \
+		error_message.c \
 
 BONUS = ft_lstnew.c \
 		ft_lstsize.c \

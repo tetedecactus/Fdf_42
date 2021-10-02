@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/30 19:22:14 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/02 12:38:33 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,29 @@
 
 int	main(int argc, char **argv)
 {
+	int i;
+	int j;
 	map *map = malloc(sizeof(map));
 	
 	if (argc == 2)
 		read_file(argv[1], map);
-    printf("height = %d\n", map->height);
-    printf("width = %d\n", map->width);
-	free(map);
+	else
+		error_message();	
+	i = 0;
+	while (i < map->height)
+	{
+		j = 0;
+		while (j < map->width)
+		{
+			printf("%3d", map->matrix[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+    // printf("height = %d\n", map->height);
+    // printf("width = %d\n", map->width);
+	//free(map);
 	
 		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
 	return 0;
