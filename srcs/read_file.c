@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/02 12:48:22 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/02 13:01:14 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void fill_matrix(int *matrix_line, char *line, map *map)
     printf("inside fill_matrix\n");
     
     nums = ft_split(line, ' ');
+    for (int k = 0; k < map->width; k++)
+        printf("%s\n", nums[k]);
     i = 0;
     while (i < map->height)
     {
@@ -73,7 +75,7 @@ void fill_matrix(int *matrix_line, char *line, map *map)
         while (j < map->width)
         {
             matrix_line[j] = ft_atoi(&nums[i][j]);
-            printf("matrix line element = %d\n", matrix_line[i]);
+            //printf("matrix line element = %d\n", matrix_line[i]);
             j++;
         }
         free(nums[i]);
