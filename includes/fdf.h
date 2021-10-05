@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/02 11:14:04 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:22:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,5 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 // Read fucntion
 void 	read_file(char *file_name, map *map);
-int 	get_height(char *file_name);
-int 	get_width(char *file_name);
 
 #endif

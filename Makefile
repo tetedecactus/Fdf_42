@@ -6,11 +6,11 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/09/30 09:16:25 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/10/05 08:45:19 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FRAMEWORKS = -framework OpenGL -framework AppKit
+#FRAMEWORKS = -framework OpenGL -framework AppKit
 
 NAME = fdf
 
@@ -33,7 +33,7 @@ all: ${NAME}
 ${NAME}:${OBJS}
 	    @make -C ./libft/
 		@make -C ./minilibx_macos/
-		@${CC} ${CFLAGS} ${FRAMEWORKS} ${OBJS}  -o ${NAME} ${INCLUDES} 
+		@${CC} ${CFLAGS} ${OBJS}  -o ${NAME} ${INCLUDES} 
 
 clean: 
 		rm -f ${OBJS} 
@@ -47,3 +47,4 @@ re: fclean all
 
 .PHONY: clean fclean re all
 
+# ent re cflags et OBJS ${FRAMEWORKS}

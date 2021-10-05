@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_message.c                                    :+:      :+:    :+:   */
+/*   width_counter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/18 11:37:40 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/05 14:25:37 by olabrecq         ###   ########.fr       */
+/*   Created: 2021/10/05 13:05:32 by olabrecq          #+#    #+#             */
+/*   Updated: 2021/10/05 13:15:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 /* 
-* CODE ERROR
-* 1 = invalid map
-* 2 =  nb dargument invalide
-* 3 =  general error
+* this function take line and delete all separator,
+* it return the width of the line minus all the separator 
 */
 
-void	error_message(int code_error)
+#include "libft.h"
+
+int width_counter(char *line, char separator)
 {
-	if (code_error == 1)
-		ft_putstr_fd("Map invalid\n", 2);
-	if (code_error == 2)
-		ft_putstr("Number of arguments invalid\n");
-	if (code_error == 3)
-		ft_putstr("Error\n");
-	exit(EXIT_FAILURE);
+    int i;
+    int width;
+
+    width = 0;
+    i = 0;
+    while (line[i])
+    {
+        if (line[i] != separator)
+        {
+            width++;
+            i++;
+        }
+        i++;
+    }
+    return (width);
 }
