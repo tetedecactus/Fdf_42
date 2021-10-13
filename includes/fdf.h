@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/13 13:30:42 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:55:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,36 +26,32 @@
 # define WIDTH 1920
 # define HIGH 1080
 
-typedef struct	s_data 
+typedef struct	fdf 
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}				t_data;
 
-typedef struct s_point
-{
+	void 	*mlx_ptr;
+	void 	*mlw_win_ptr;
+
 	float 	x;
 	float 	y;
 	float 	z;
 	int 	color;
 	int 	row;
 	int 	col;	
-} t_point;
-
-typedef struct s_map
-{
+	
 	int 	height;
 	int 	width;
-	t_point *point;
-} t_map;
+}				fdf;
 
 // MiniLibX function
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	my_mlx_pixel_put(fdf *data, int x, int y, int color);
 
 // Read fucntion
-void 	read_file(char *file_name, t_map *map);
+void 	read_n_create_map(char *file_name, fdf *map);
 
 #endif

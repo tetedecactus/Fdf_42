@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/18 11:37:40 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/05 14:25:37 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/13 14:02:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,9 @@ void	error_message(int code_error)
 		ft_putstr("Number of arguments invalid\n");
 	if (code_error == 3)
 		ft_putstr("Error\n");
+	if (code_error == 4)
+		ft_putstr("Fd invalid\n");
+	if (code_error == 5)
+		ft_putstr("Close error\n");
 	exit(EXIT_FAILURE);
 }

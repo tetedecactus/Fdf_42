@@ -6,13 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 15:40:41 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/28 12:46:04 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:45:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+void	my_mlx_pixel_put(fdf *data, int x, int y, int color)
 {
 	char	*dst;
 

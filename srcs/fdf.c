@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/12 15:19:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/13 13:55:28 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	main(int argc, char **argv)
 {
 	// int i;
 	// int j;
-	t_map *map = malloc(sizeof(t_map));
+	fdf *map = malloc(sizeof(fdf));
 	
 	if (argc != 2)
 		error_message(2);
-	read_file(argv[1], map);
+	read_n_create_map(argv[1], map);
     
 	free(map);
 	
