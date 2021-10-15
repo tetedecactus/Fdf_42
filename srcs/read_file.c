@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/15 10:51:48 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/15 11:18:29 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,16 @@ void    init_matrix(fdf *parameters)
     parameters->y = 0.000000;
     parameters->z = 0.00000;
     parameters->col = 0.000000;
-    parameters->color = 0.000000;
-    //parameters->endian = 0;
-    parameters->height = t_height;
-  //  parameters->img = 0;
-  //  parameters->line_length = 0;
-  //  parameters->line_length = 0;
-  //  parameters->mlw_win_ptr = 0;
-  //  parameters->mlx_ptr = 0;
     parameters->row = 0.000000;
+    parameters->color = 0.000000;
+    parameters->height = t_height;
     parameters->width = t_width;
+    //parameters->endian = 0;
+    //parameters->img = 0;
+    //parameters->line_length = 0;
+    //parameters->line_length = 0;
+    //parameters->mlw_win_ptr = 0;
+    //parameters->mlx_ptr = 0;
 }
 
 void fill_line(fdf **matrix, int height, int width, char *line)
