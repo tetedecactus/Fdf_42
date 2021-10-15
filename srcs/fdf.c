@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/14 16:10:38 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/15 10:01:05 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		error_message(2);
-	//print_matrix(&matrix);
-    //create_fdf_map(argv[1], matrix);
+    create_fdf_map(argv[1], matrix);
+	print_matrix(matrix);
 	//read_n_create_map(argv[1], matrix);
     
 	free(matrix);

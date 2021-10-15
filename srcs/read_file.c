@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/14 16:10:03 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/15 10:51:48 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void fill_line(fdf **matrix, int height, int width, char *line)
     int i = 0;
     
     nums = ft_split(line, ' ');
-    while (matrix[width])
+    while (i < width)
     {
-        matrix[height][width].x = width;
-        matrix[height][width].y = height;
-        matrix[height][width].z = ft_atoi((nums[width]));
+        (*matrix + i)->x = i;
+        (*matrix + i)->y = height;
+        (*matrix + i)->z = ft_atoi(nums[i]);
         free(nums[i++]);
-        width--;
     }
+    
 }
 
 fdf **create_fdf_map(char *file_name, fdf **matrix)
@@ -96,7 +96,7 @@ fdf **create_fdf_map(char *file_name, fdf **matrix)
         error_message(4);
     while (get_next_line(fd, &line) > 0)
     {
-        fill_line(matrix, height, t_width, line);
+        fill_line(&(matrix[height]), height, t_width, line);
         free(line);
         height++;
     }
@@ -106,24 +106,24 @@ fdf **create_fdf_map(char *file_name, fdf **matrix)
     return (matrix);
 }
 
-// void print_matrix(fdf **matrix)
-// {
-//     int i;
-//     int j;
+void print_matrix(fdf **matrix)
+{
+    int i;
+    int j;
 	
-//     i = 0;
-//     while (i < t_height)
-//     {
-//         j = 0;
-//         while (j < t_width)
-//         {
-//             printf("0 ");
-//             j++;
-//         }
-//         printf("\n");
-//         i++;
-//     }
-// }
+    i = 0;
+    while (i < t_height)
+    {
+        j = 0;
+        while (j < t_width)
+        {
+            printf("%3.0f", matrix[i][j].z);
+            j++;
+        }
+        printf("\n");
+        i++;
+    }
+}
 
 // void    read_n_create_map(char *file_name, fdf **matrix);
 // {

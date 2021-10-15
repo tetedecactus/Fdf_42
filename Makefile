@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/10/14 15:59:02 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/10/15 11:12:32 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = fdf
 
 SRCS = 	./srcs/fdf.c \
 		./srcs/read_file.c \
-# ./srcs/minilibx_function.c \
+		./srcs/minilibx_function.c \
 
 INCLUDES = ./libft/libft.a ./minilibx_macos/libmlx.a
 
