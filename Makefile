@@ -6,17 +6,18 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/10/15 12:05:54 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/10/18 14:15:26 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#FRAMEWORKS = -framework OpenGL -framework AppKit
+# FRAMEWORKS = -framework OpenGL -framework AppKit
 
 NAME = fdf
 
 SRCS = 	./srcs/fdf.c \
 		./srcs/read_file.c \
-# ./srcs/minilibx_function.c \
+		# ./srcs/minilibx_function.c \
+		# ./srcs/draw.c \
 
 INCLUDES = ./libft/libft.a ./minilibx_macos/libmlx.a
 
@@ -33,7 +34,7 @@ all: ${NAME}
 ${NAME}:${OBJS}
 	    @make -C ./libft/
 		@make -C ./minilibx_macos/
-		@${CC} ${CFLAGS} ${OBJS}  -o ${NAME} ${INCLUDES} 
+		@${CC} ${CFLAGS}  ${OBJS}  -o ${NAME} ${INCLUDES} 
 
 clean: 
 		rm -f ${OBJS} 
@@ -47,4 +48,4 @@ re: fclean all
 
 .PHONY: clean fclean re all
 
-# ent re cflags et OBJS ${FRAMEWORKS}
+# entre cflags et OBJS ${FRAMEWORKS}
