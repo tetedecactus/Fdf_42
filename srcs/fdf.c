@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/15 10:01:05 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/15 12:35:55 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,16 @@
 
 int	main(int argc, char **argv)
 {
-	fdf  **matrix;
-	 
-	matrix = NULL;
-	matrix = alloc_and_height_fdf_map(argv[1]);
-	init_matrix(matrix[0]);
-
+	t_map *map = malloc(sizeof(map));
+	
 	if (argc != 2)
 		error_message(2);
-    create_fdf_map(argv[1], matrix);
-	print_matrix(matrix);
+	read_n_create_map(argv[1], map);
+    //create_fdf_map(argv[1], matrix, map);
+	//print_matrix(matrix, map);
 	//read_n_create_map(argv[1], matrix);
     
-	free(matrix);
+	//free(matrix);
 	
 		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
 	return (0);
