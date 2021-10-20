@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/18 14:32:20 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/19 12:13:32 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	get_height_n_width(char *file_name, t_map *map)
 
 	old_width = 0;
 	fd = open(file_name, O_RDONLY);
+	init_map(map);
 	if (fd <= 0)
 		error_message(4);
 	while ((get_next_line(fd, &line)) > 0)
