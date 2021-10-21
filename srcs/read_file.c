@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/19 12:13:32 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:14:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init_matrix(t_point *parameters)
 	parameters->z = 0.00000;
 	parameters->col = 0.000000;
 	parameters->row = 0.000000;
-	parameters->color = 0.000000;
+	//parameters->color = 0.000000;
 }
 
 void	fill_line(t_point **matrix, int height, int width, char *line)
@@ -76,7 +76,7 @@ t_point	**alloc_matrix(t_map *map)
 	return (temp);
 }
 
-t_point	**create_fdf_map(char *file_name, t_point **matrix, t_map *map)
+t_point	**create_fdf_matrix(char *file_name, t_point **matrix, t_map *map)
 {
 	int		fd;
 	char	*line;

@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/20 11:18:44 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:11:15 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,12 @@ int	main(int argc, char **argv)
     get_height_n_width(argv[1], map);
     printf("height: %d width: %d\n", map->height, map->width);
     matrix = alloc_matrix(map);
-    create_fdf_map(argv[1], matrix, map);
+    create_fdf_matrix(argv[1], matrix, map);
     print_matrix(matrix, map);
-	draw_matrix();
+	draw_matrix(map, matrix);
+
     //matrix_the_fifth_delallocated(map, matrix);
-    //create_fdf_map(argv[1], matrix, map);
-	//print_matrix(matrix, map);
-	//read_n_create_map(argv[1], matrix);
 	//free(map);
 	
-		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
 	return (0);
 }
-
-// gcc *.c -lmlx -framework OpenGL -framework AppKit && ./a.out

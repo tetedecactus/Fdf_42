@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/20 13:47:58 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/20 20:14:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_point
 	float  	x;
 	float 	y;
 	float 	z;
-	float 	color;
 	float 	row;
 	float 	col;	
+	
 } t_point;
 
 typedef struct s_map
@@ -45,19 +45,23 @@ typedef struct s_map
 	int width;
 	int height;
 	t_point point;	
+	
 } t_map;
 
 typedef struct	fdf 
 {
+	float 	color;
+	void 	*mlx_ptr;
+	void 	*win_ptr;
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	void 	*mlx_ptr;
-	void 	*win_ptr;
+	int 	zoom;
 	t_point point;
 	t_map 	map;
+	
 }				fdf;
 
 // MiniLibX function
@@ -67,7 +71,7 @@ void	my_mlx_pixel_put(fdf *data, int x, int y, int color);
 void    get_height_n_width(char *file_name, t_map *map);
 void 	fill_line(t_point **matrix, int height, int width, char *line);
 t_point **alloc_matrix(t_map *map);
-t_point **create_fdf_map(char *file_name, t_point **matrix, t_map *map);
+t_point **create_fdf_matrix(char *file_name, t_point **matrix, t_map *map);
 void 	print_matrix(t_point **matrix, t_map *map);
 void 	matrix_the_fifth_delallocated(t_map *map, t_point **matrix);
 
@@ -77,6 +81,6 @@ void 	init_map(t_map *map);
 void    init_matrix(t_point *parameters);
 
 // Draw function
-void 	draw_matrix();
+void 	draw_matrix(t_map *map_info, t_point **matrix);
 
 #endif
