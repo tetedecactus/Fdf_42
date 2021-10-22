@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/20 20:14:40 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/22 10:44:14 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 // # include "../minilibx_macos/mlx.h"
 
 # define WIDTH 1920
-# define HIGH 1080
+# define HEIGHT 1080
+# define WIDTH_IMG (WIDTH / 3)
+# define HEIGHT_IMG (HEIGHT / 3)
 # define RED 0x00ff0000
 # define WHITE 0x00ffffff
 # define ESC 53
@@ -59,7 +61,7 @@ typedef struct	fdf
 	int		line_length;
 	int		endian;
 	int 	zoom;
-	t_point point;
+	t_point **point;
 	t_map 	map;
 	
 }				fdf;
@@ -69,11 +71,8 @@ void	my_mlx_pixel_put(fdf *data, int x, int y, int color);
 
 // Read fucntion
 void    get_height_n_width(char *file_name, t_map *map);
-void 	fill_line(t_point **matrix, int height, int width, char *line);
-t_point **alloc_matrix(t_map *map);
 t_point **create_fdf_matrix(char *file_name, t_point **matrix, t_map *map);
-void 	print_matrix(t_point **matrix, t_map *map);
-void 	matrix_the_fifth_delallocated(t_map *map, t_point **matrix);
+t_point	**alloc_matrix(t_map *map);
 
 // void 	read_n_create_map(char *file_name, t_map *map);
 // init function 
