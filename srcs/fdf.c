@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/20 20:11:15 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/25 16:42:13 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,10 @@ int	main(int argc, char **argv)
     create_fdf_matrix(argv[1], matrix, map);
     print_matrix(matrix, map);
 	draw_matrix(map, matrix);
-
-    //matrix_the_fifth_delallocated(map, matrix);
-	//free(map);
+    matrix_the_fifth_delallocated(map, matrix);
+	free(map);
 	
 	return (0);
 }
+
+

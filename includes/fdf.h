@@ -6,13 +6,14 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/22 10:44:14 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/26 09:58:01 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+# include <stdbool.h>
 # include <math.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -28,6 +29,7 @@
 # define HEIGHT 1080
 # define WIDTH_IMG (WIDTH / 3)
 # define HEIGHT_IMG (HEIGHT / 3)
+# define MYSTERE 0x830707
 # define RED 0x00ff0000
 # define WHITE 0x00ffffff
 # define ESC 53
@@ -38,8 +40,9 @@ typedef struct s_point
 	float 	y;
 	float 	z;
 	float 	row;
-	float 	col;	
-	
+	float 	col;
+	int 	color;
+	bool 	is_hexa;	
 } t_point;
 
 typedef struct s_map
@@ -81,5 +84,6 @@ void    init_matrix(t_point *parameters);
 
 // Draw function
 void 	draw_matrix(t_map *map_info, t_point **matrix);
+void 	draw(fdf *data, t_map *map_info, t_point **matrix);
 
 #endif

@@ -6,11 +6,19 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/22 11:17:15 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/26 14:10:12 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/fdf.h"
+
+// void init_x_y(fdf *data)
+// {
+// 	data->x = 350;
+// 	data->x1 = 350;
+// 	data->y = 150;
+// 	data->y1 = 150;
+// }
 
 float mod(float i)
 {
@@ -19,9 +27,18 @@ float mod(float i)
 
 void isometric(float *x, float *y, int z)
 {
-	*x = (*x - *y) * cos(0.523599);
-	*y = (*x + *y) * sin(0.523599) - z;
+	*x = (*x - *y) * cos(0.723599);
+	*y = (*x + *y) * sin(0.723599) - z;
+}
 
+int del_key(int key, fdf *data)
+{
+	if (key == 53)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		exit(0);
+	}
+	return (0);
 }
 
 void bresenham(float x, float y, float x1, float y1, fdf *data, t_point **matrix)
@@ -38,14 +55,13 @@ void bresenham(float x, float y, float x1, float y1, fdf *data, t_point **matrix
 	y *= data->zoom;
 	x1 *= data->zoom;
 	y1 *= data->zoom;
-	data->color = (z) ? RED : WHITE;
+	data->color = (z || z1) ? MYSTERE : WHITE;
 	isometric(&x, &y, z);
 	isometric(&x1, &y1, z1);
 	x += 350;
 	y += 150;
 	x1 += 350;
 	y1 += 150;
-
 	x_step = x1 - x;
 	y_step = y1 - y;
 	max = fmax(mod(x_step), mod(y_step));
@@ -57,12 +73,6 @@ void bresenham(float x, float y, float x1, float y1, fdf *data, t_point **matrix
 		x += x_step;
 		y += y_step;
 	}
-}
-
-int del_key(int key)
-{
-	printf("%d", key);
-	return (0);
 }
 
 void draw(fdf *data, t_map *map_info, t_point **matrix)
@@ -88,6 +98,7 @@ void draw(fdf *data, t_map *map_info, t_point **matrix)
 
 void draw_matrix(t_map *map_info, t_point **matrix)
 {
+	
 	fdf *data;
 	
 	data = NULL;
@@ -101,6 +112,6 @@ void draw_matrix(t_map *map_info, t_point **matrix)
 	data->zoom = 20;
 	draw(data, map_info, matrix);
 	//mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
-	mlx_key_hook(data->win_ptr, del_key, NULL);
+	mlx_key_hook(data->win_ptr, del_key, data);
 	mlx_loop(data->mlx_ptr);
 } 
