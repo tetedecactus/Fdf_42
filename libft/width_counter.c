@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:05:32 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/14 14:42:39 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/10/28 09:59:18 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,44 +17,71 @@
 
 #include "libft.h"
 
+// void check_hexa(char *line)
+// {
+//     int i = 0;
+//     int j = 0;
+
+//     if (line[i] == ',')
+//         {    
+//             j = i;
+//             while (line[j] != ' ')
+//                 j++;
+//             i = j;
+//             //width++;
+//         }
+// }
+// int width_counter(char *line, char separator)
+// {
+//     int i;
+//     //int j;
+//     int width;
+
+//     width = 0;
+//     i = 0;
+//     while (line[i])
+//     {
+//         check_hexa(line);
+
+//         if (line[i] == '-')
+//             i++;
+//         if (line[i] != separator && line[i - 1] == separator)
+//         {
+//             width++;
+//             i++;
+//         }
+//         else
+//             i++;
+//     }
+//     return (width);
+// }
+
 int width_counter(char *line, char separator)
 {
     int i;
-    int width;
-
-    width = 0;
-    i = 0;
-    separator = ' ';
-    while (line[i])
-    {
-        if (line[i] == '-')
-            i++;
-        if (line[i] != separator)
-        {
-            width++;
-            i++;
-        }
-        i++;
-    }
-    return (width);
-}
-
-// int	main(int argc, char **argv)
-// {
-// 	// int i;
-// 	// int j;
-// 	fdf  **matrix;
-	 
-// 	matrix = NULL;
-// 	matrix = alloc_and_height_fdf_map(argv[1]);
-
-// 	if (argc != 2)
-// 		error_message(2);
-// 	read_n_create_map(argv[1], matrix);
-// 	//print_matrix(matrix);
+    char **number_in_lines;
     
-// 	free(matrix);
-	
-// 		//mlx_pixel_put(mlx_ptr, mlx_win_ptr, i++, 700, 0x00FF0000);
-// 	return (0);
+    (void)separator;
+    number_in_lines = ft_split(line, ' ');
+    i = 0;
+    while (number_in_lines[i])
+    {
+        i++;
+        free(number_in_lines[i]);
+
+    }
+    free(number_in_lines);
+    
+    return (i);    
+}
+// int  main()
+// {
+//     char *line;
+//     int width;
+    
+//     width = 0;
+//     line = "0 0 1 2 3 4 5 6 7 8 9";
+
+//     width = width_counter(line, ' ');
+//     printf("%d\n", width);
 // }
