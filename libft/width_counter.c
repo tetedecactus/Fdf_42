@@ -6,13 +6,14 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:05:32 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/28 09:59:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/05 12:09:58 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* 
 * this function take line and delete all separator,
 * it return the width of the line minus all the separator 
+* This function was made for the project ---> Fdf <---
 */
 
 #include "libft.h"
@@ -31,6 +32,7 @@
 //             //width++;
 //         }
 // }
+
 // int width_counter(char *line, char separator)
 // {
 //     int i;
@@ -71,17 +73,5 @@ int width_counter(char *line, char separator)
 
     }
     free(number_in_lines);
-    
     return (i);    
 }
-// int  main()
-// {
-//     char *line;
-//     int width;
-    
-//     width = 0;
-//     line = "0 0 1 2 3 4 5 6 7 8 9";
-
-//     width = width_counter(line, ' ');
-//     printf("%d\n", width);
-// }

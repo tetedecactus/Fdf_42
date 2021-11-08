@@ -6,49 +6,49 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/25 16:42:13 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/05 11:09:25 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-//#include "../minilibx_macos/mlx_ptr.h"
 
-void matrix_the_fifth_delallocated(t_map *map, t_point **matrix)
+void matrix_the_fifth_delallocated(fdf *data)
 {
     int i;
     //int j;
     int height;
-    //int width;
     
-    height = map->height;
-    //width = map->width;
+    height = data->map_height;
     i = 0;
     while (i < height)
     {
         // j = 0;
-        // while (j < width)
+        // while (j < data->map_width[i])
         // {
-        //     free(matrix[i][j]);
+        //     free(&data->matrix[i][j]);
+        //     free(&data->map_width[i]);
         //     j++;
-        
-        free(matrix[i]);
+        // }
+        free(data->matrix[i]);
         i++;
     }
-    free(matrix);
+    free(data->matrix);
 }
 
-void print_matrix(t_point **matrix, t_map *map)
+
+void print_matrix(fdf *data)
 {
     int i;
     int j;
+    
 	
     i = 0;
-    while (i < map->height)
+    while (i < data->map_height)
     {
         j = 0;
-        while (j < map->width)
+        while (j < data->map_width[i])
         {
-            printf("%3.0f", matrix[i][j].z);
+            printf("%3.0f", data->matrix[i][j].z);
             j++;
         }
         printf("\n");
@@ -56,32 +56,40 @@ void print_matrix(t_point **matrix, t_map *map)
     }
 }
 
-void init_map(t_map *map)
+void print_h_w(fdf *data)
 {
-	map->width = 0;
-	map->height = 0;
+    int i = 0;
+    while (i != (data->map_height))
+    {
+        printf(" witdh[%d] = %d\n", i, data->map_width[i]);
+        i++;
+    }
+    printf("height = %d\n", data->map_height);
 }
 
 int	main(int argc, char **argv)
 {
-	t_map   *map;
-    t_point **matrix;
+	fdf *data;
 
-	matrix = NULL;
-    map = NULL;
-	map = (t_map *)malloc(sizeof(t_map));
+    data = NULL;
+	data = (fdf *)malloc(sizeof(fdf));
 	if (argc != 2)
 		error_message(2);
-    get_height_n_width(argv[1], map);
-    printf("height: %d width: %d\n", map->height, map->width);
-    matrix = alloc_matrix(map);
-    create_fdf_matrix(argv[1], matrix, map);
-    print_matrix(matrix, map);
-	draw_matrix(map, matrix);
-    matrix_the_fifth_delallocated(map, matrix);
-	free(map);
+    get_height_n_width(argv[1], data);
+    print_h_w(data);
+    //printf("height: %d width: %d\n", data->map_height, data->map_width[0]);
+    data->matrix = alloc_matrix(data);
+    data->matrix = create_fdf_matrix(argv[1], data);
+    print_matrix(data);
+	draw_matrix(data);
+    matrix_the_fifth_delallocated(data);
+    free(data);
 	
 	return (0);
 }
 
+
+// -----> Liste de truc a faire
+//        1. Arrenger pour que toute les maps fonctionnes
+//        2. Bonus
 

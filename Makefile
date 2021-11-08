@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/10/19 11:27:12 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/11/04 11:12:16 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,9 @@ NAME = fdf
 SRCS = 	./srcs/fdf.c \
 		./srcs/read_file.c \
 		./srcs/draw.c \
-
+		./srcs/init.c \
+		./srcs/key_touch.c \
+		
 INCLUDES = libft/libft.a minilibx_macos/libmlx.a
 
 OBJS = ${SRCS:.c=.o}
