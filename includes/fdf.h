@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/11 11:32:58 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:13:20 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,14 @@ void 	init_data(fdf *data);
 //void 	init_width(fdf *data, int line_width);
 
 // Draw function
-void 	draw_matrix(fdf *data);
+void 	draw_matrix(fdf *data);\
+void 	draw(fdf *data);
+
 // void 	draw(fdf *data, t_map *map_info, t_point **matrix);
 
 // Key touch function
-int 	del_key(int key, fdf *data);
+int check_key(int key, fdf *data);
+
 
 
 #endif

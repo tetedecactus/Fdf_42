@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/11 11:33:02 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/12 10:47:00 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ float mod(float i)
 	//return ((i < 0) ? -i : i);
 }
 
-void isometric(float *x, float *y, int z)
+void isometric(float *x, float *y, int z, fdf *data)
 {
 	// Besoin de changer les parametre pour seulement fdf *data
 	// Same pour bresenham function
-	*x = (*x - *y) * cos(0.723599);
-	*y = (*x + *y) * sin(0.723599) - z;
+	*x = (*x - *y) * cos(data->rotation_cos);
+	*y = (*x + *y) * sin(data->rotation_sin) - z;
 }
 
 void bresenham(float x, float y, float x1, float y1, fdf *data)
@@ -44,8 +44,8 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	x1 *= data->zoom;
 	y1 *= data->zoom;
 	data->color = (z || z1) ? MYSTERE : WHITE;
-	isometric(&x, &y, z);
-	isometric(&x1, &y1, z1);
+	isometric(&x, &y, z, data);
+	isometric(&x1, &y1, z1, data);
 	x += data->shift_x;
 	y += data->shift_y;
 	x1 += data->shift_x;
@@ -84,22 +84,22 @@ void draw(fdf *data)
 	}
 }
 
-void check_zoom(fdf *data)
-{
-	if (data->map_height > 200 &&  *data->map_width > 200)
-		data->zoom = 2;
-	else if (data->map_height >= 200 &&  *data->map_width >= 200)
-		data->zoom = 5;
-	else if (data->map_height >= 100)
-		data->zoom = 7;
-	else if (data->map_height > 50 &&  *data->map_width > 50)
-		data->zoom = 8;
-	else if (data->map_height == 50 &&  *data->map_width == 50)
-		data->zoom = 12;
-	else
-		data->zoom = 20;
-	printf(" zoom = %d\n", data->zoom);
-}
+// void check_zoom(fdf *data)
+// {
+// 	if (data->map_height > 200 &&  *data->map_width > 200)
+// 		data->zoom = 2;
+// 	else if (data->map_height >= 200 &&  *data->map_width >= 200)
+// 		data->zoom = 5;
+// 	else if (data->map_height >= 100)
+// 		data->zoom = 7;
+// 	else if (data->map_height > 50 &&  *data->map_width > 50)
+// 		data->zoom = 8;
+// 	else if (data->map_height == 50 &&  *data->map_width == 50)
+// 		data->zoom = 12;
+// 	else
+// 		data->zoom = 20;
+// 	printf(" zoom = %d\n", data->zoom);
+// }
 
 void draw_matrix(fdf *data)
 {
@@ -114,10 +114,10 @@ void draw_matrix(fdf *data)
 	//my_mlx_pixel_put(data->img, 450, 300, WHITE);`
 	//bresenham(10, 10, 600, 300, data);
 	init_data(data);
-	check_zoom(data);
+	//check_zoom(data);
 	draw(data);
 	// mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img, 0, 0);
-	mlx_key_hook(data->win_ptr, del_key, data);
+	mlx_key_hook(data->win_ptr, check_key, data);
 	mlx_loop(data->mlx_ptr);
 	free(data);
 } 
