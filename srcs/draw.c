@@ -6,19 +6,19 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 15:19:59 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:51:18 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/fdf.h"
 
-void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, int color)
+void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, unsigned int color)
 {
 	if (x < WIDTH && y < HEIGHT)
 	{
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4)] = 0;
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 1] = 0;
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 2] = color % 256;
+		data->addr[(x * 4) + (y * WIDTH_IMG * 4)] = color % 256; 
+		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 1] = color / 256;
+		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 2] = color / (256 * 256);
 	}
 }
 
@@ -49,7 +49,7 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	y *= data->zoom;
 	x1 *= data->zoom;
 	y1 *= data->zoom;
-	data->color = (z || z1) ? MYSTERE : WHITE;
+	data->color = (z || z1) ? RED : WHITE;
 	isometric(&x, &y, z, data);
 	isometric(&x1, &y1, z1, data);
 	x += data->shift_x;
@@ -64,8 +64,9 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	while ((int)(x - x1) || (int)(y - y1))
 	{
 		//mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
-		// my_mlx_pixel_put(data, x, y, data->color);
-		my_mlx_pixel_put(data, x, y, WHITE);
+		// (z || z1) ? my_mlx_pixel_put(data, x, y, RED) : my_mlx_pixel_put(data, x, y, WHITE);;
+		my_mlx_pixel_put(data, x, y, data->color);
+		// my_mlx_pixel_put(data, x, y, WHITE);
 		x += x_step;
 		y += y_step;
 	}

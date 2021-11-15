@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:18:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 15:10:37 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:32:40 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	init_matrix(t_point *parameters)
 	parameters->x = 0.000000;
 	parameters->y = 0.000000;
 	parameters->z = 0.00000;
-	parameters->col = 0.000000;
-	parameters->row = 0.000000;
 	parameters->color = 0;
 }
 

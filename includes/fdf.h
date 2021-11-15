@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 15:17:59 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:35:32 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,7 @@ typedef struct s_point
 	float  		x;
 	float 		y;
 	float 		z;
-	float 		row;
-	float 		col;
 	int 		color;
-	//bool 		is_hexa;
-	//t_point 	**matrix;	
 } t_point;
 
 
@@ -73,16 +69,11 @@ typedef struct fdf
 	float 	shift_y;
 	int 	projection;
 	int 	zoom;
-	int 	color;
+	unsigned int 	color;
 }	fdf;
 
-	// // float 	x;
-	// // float 	y;
-	// // float 	x1;
-	// // float 	y1;
-
 // MiniLibX function
-void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, int color);
+void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, unsigned int color);
 
 // Read fucntion
 void    get_height_n_width(char *file_name, fdf *data);
