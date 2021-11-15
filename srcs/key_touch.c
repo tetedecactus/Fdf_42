@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:10:01 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/12 12:02:57 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 14:51:37 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@ void del_key(fdf *data)
 void shift_key(int key, fdf *data)
 {
 	if (key == 123)
-		data->shift_x -= 100;
+		data->shift_x -= 10;
 	if (key == 124)
-		data->shift_x += 100;
+		data->shift_x += 10;
 	if (key == 125)
-		data->shift_y += 100;
+		data->shift_y += 10;
 	if (key == 126)
-		data->shift_y -= 100;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		data->shift_y -= 10;
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 }
 
 void projection_key(int key, fdf *data)
 {
 	if (key == 37)
-		data->projection -= 2;
+		data->projection -= 1;
 	if (key == 46)
-		data->projection += 2;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+		data->projection += 1;
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 }
 
@@ -53,7 +53,7 @@ void rotation_key(int key, fdf *data)
 		data->rotation_cos -= 0.2;
 	if (key == 7)
 		data->rotation_sin -= 0.2;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 }
 
@@ -63,7 +63,7 @@ void zoom_key(int key, fdf *data)
 		data->zoom += 1;
 	if (key == 27)
 		data->zoom -= 1;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	//mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);
 }
 
@@ -77,7 +77,7 @@ int check_key(int key, fdf *data)
 		projection_key(key, data);
 	if (key == 8 || key == 7 || key == 0 || key == 1)
 		rotation_key(key, data);
-	if (key == 24 || key == 27)//zoom
+	if (key == 24 || key == 27)
 		zoom_key(key, data);
 	
 	return (0);

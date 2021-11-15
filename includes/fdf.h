@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/12 10:13:20 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 15:17:59 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
-# define WIDTH_IMG (WIDTH / 3)
-# define HEIGHT_IMG (HEIGHT / 3)
+# define WIDTH_IMG (WIDTH * 3)
+# define HEIGHT_IMG (HEIGHT  * 3)
 # define MYSTERE 0x830707
-# define RED 0x00ff0000
-# define WHITE 0x00ffffff
+# define RED 0xff0000
+# define WHITE 0xffffff
 # define ESC 53
 # define UP 126
 # define DOWN 125
@@ -61,27 +61,28 @@ typedef struct fdf
 	void 	*mlx_ptr;
 	void 	*win_ptr;
 	
+	char	*addr;
+	void	*img;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	
 	float 	rotation_cos;
 	float 	rotation_sin;
 	float	shift_x;
 	float 	shift_y;
 	int 	projection;
 	int 	zoom;
-	float 	color;
+	int 	color;
 }	fdf;
 
-	// void	*img;
-	// char	*addr;
-	// int		bits_per_pixel;
-	// int		line_length;
-	// int		endian;
 	// // float 	x;
 	// // float 	y;
 	// // float 	x1;
 	// // float 	y1;
 
 // MiniLibX function
-void	my_mlx_pixel_put(fdf *data, int x, int y, int color);
+void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, int color);
 
 // Read fucntion
 void    get_height_n_width(char *file_name, fdf *data);

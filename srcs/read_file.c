@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/11 11:33:07 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/15 08:58:27 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	get_height_n_width(char *file_name, fdf *data)
 	char	*line;
 	int		old_width;
 	int 	i;
-
+	
 	i = 0;
 	old_width = 0;
 	fd = open(file_name, O_RDONLY);
