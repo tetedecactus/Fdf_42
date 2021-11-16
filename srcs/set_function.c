@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minilibx_function.c                                :+:      :+:    :+:   */
+/*   set_function.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/15 15:40:41 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/10/13 13:45:26 by olabrecq         ###   ########.fr       */
+/*   Created: 2021/11/16 12:07:38 by olabrecq          #+#    #+#             */
+/*   Updated: 2021/11/16 12:21:07 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	my_mlx_pixel_put(fdf *data, int x, int y, int color)
+unsigned int	set_color(int z, int z1)
 {
-	char	*dst;
-
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	if (z || z1)
+		return ((int)RED);
+	else
+		return ((int)WHITE);
 }

@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/11/11 11:33:07 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/11/16 12:08:46 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ SRCS = 	./srcs/fdf.c \
 		./srcs/draw.c \
 		./srcs/init.c \
 		./srcs/key_touch.c \
+		./srcs/draw_extension.c \
+		./srcs/set_function.c \
 		
 INCLUDES = libft/libft.a minilibx_macos/libmlx.a
 

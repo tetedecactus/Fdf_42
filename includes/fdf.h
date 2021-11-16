@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 15:35:32 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/16 12:39:25 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 
 # define WIDTH 1920
 # define HEIGHT 1080
-# define WIDTH_IMG (WIDTH * 3)
-# define HEIGHT_IMG (HEIGHT  * 3)
+# define WIDTH_IMG (1920 * 3)
+# define HEIGHT_IMG (1080  * 3)
 # define MYSTERE 0x830707
 # define RED 0xff0000
 # define WHITE 0xffffff
@@ -43,26 +43,23 @@ typedef struct s_point
 	float  		x;
 	float 		y;
 	float 		z;
-	int 		color;
 } t_point;
 
 
 typedef struct fdf 
 {
 	t_point 	**matrix;
-	
 	int 		*map_width;
 	int 		map_height;
-	
+    
 	void 	*mlx_ptr;
 	void 	*win_ptr;
-	
 	char	*addr;
 	void	*img;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-	
+    
 	float 	rotation_cos;
 	float 	rotation_sin;
 	float	shift_x;
@@ -91,10 +88,16 @@ void 	init_data(fdf *data);
 void 	draw_matrix(fdf *data);\
 void 	draw(fdf *data);
 
-// void 	draw(fdf *data, t_map *map_info, t_point **matrix);
+// Draw extension  function
+float mod(float i);
+void isometric(float *x, float *y, int z, fdf *data);
+void  clear_image(char *addr);
 
 // Key touch function
 int check_key(int key, fdf *data);
+
+// set function
+unsigned int	set_color(int z, int z1);
 
 
 

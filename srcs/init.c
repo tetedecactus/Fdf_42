@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:18:47 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 16:47:02 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/16 12:05:35 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	init_matrix(t_point *parameters)
 	parameters->x = 0.000000;
 	parameters->y = 0.000000;
 	parameters->z = 0.00000;
-	parameters->color = 0;
 }
 
 void	init_map(fdf *data, int line_width)
@@ -28,6 +27,7 @@ void	init_map(fdf *data, int line_width)
 
 void	init_data(fdf *data)
 {
+	data->color = (int)0xffffff;
 	data->rotation_cos = 0.623599;
 	data->rotation_sin = 0.623599;
 	data->shift_x = 850;

@@ -6,34 +6,11 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 15:51:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/16 12:41:18 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/fdf.h"
-
-void	my_mlx_pixel_put(fdf *data, unsigned int x, unsigned int y, unsigned int color)
-{
-	if (x < WIDTH && y < HEIGHT)
-	{
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4)] = color % 256; 
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 1] = color / 256;
-		data->addr[(x * 4) + (y * WIDTH_IMG * 4) + 2] = color / (256 * 256);
-	}
-}
-
-float mod(float i)
-{
-	if (i < 0)
-		i = -i;
-	return(i);
-}
-
-void isometric(float *x, float *y, int z, fdf *data)
-{
-	*x = (*x - *y) * cos(data->rotation_cos);
-	*y = (*x + *y) * sin(data->rotation_sin) - z;
-}
+#include "../includes/fdf.h"
 
 void bresenham(float x, float y, float x1, float y1, fdf *data)
 {
@@ -49,7 +26,7 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	y *= data->zoom;
 	x1 *= data->zoom;
 	y1 *= data->zoom;
-	data->color = (z || z1) ? RED : WHITE;
+	data->color = set_color(z, z1);
 	isometric(&x, &y, z, data);
 	isometric(&x1, &y1, z1, data);
 	x += data->shift_x;
@@ -58,25 +35,15 @@ void bresenham(float x, float y, float x1, float y1, fdf *data)
 	y1 += data->shift_y;
 	x_step = x1 - x;
 	y_step = y1 - y;
-	max = fmax(mod(x_step), mod(y_step));
+	max = fmax(mod((int)x_step), mod((int)y_step));
 	x_step /= max;
 	y_step /= max;
 	while ((int)(x - x1) || (int)(y - y1))
 	{
-		//mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
-		// (z || z1) ? my_mlx_pixel_put(data, x, y, RED) : my_mlx_pixel_put(data, x, y, WHITE);;
 		my_mlx_pixel_put(data, x, y, data->color);
-		// my_mlx_pixel_put(data, x, y, WHITE);
 		x += x_step;
 		y += y_step;
 	}
-}
-
-void  clear_image(char *addr)
-{
-	int count = 0;
-	while (count < (WIDTH_IMG * HEIGHT_IMG * 4))
-		addr[count++] = 0;
 }
 
 void draw(fdf *data)
