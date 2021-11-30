@@ -6,22 +6,11 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 12:34:56 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/06/04 11:54:11 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:58:41 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -36,24 +25,12 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	while (haystack[i] && i < len)
 	{
 		j = 0;
-		while (haystack[i + j] && needle[j] && haystack[i + j] == needle[j] && i + j < len)
+		while (haystack[i + j] && needle[j]
+			&& haystack[i + j] == needle[j] && i + j < len)
 			j++;
 		if (j == needle_len)
 			return ((char *)&haystack[i]);
 		i++;
 	}
 	return (0);
-}
-
-int main() 
-{
-    const char *largestring = "patate";
-    const char *smallstring = "patate";
-    char *ptr;
-
-    ptr = ft_strnstr(largestring, smallstring, 0);
-
-    printf("%s\n", ptr);
-    
-    return 0;
 }

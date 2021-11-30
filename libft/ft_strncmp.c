@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 10:04:34 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/08/13 10:28:44 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:58:00 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_strncmp(const char *str1, const char *str2, unsigned int n)
 	if (!n)
 		return (0);
 	while ((unsigned char)str1[i]
-		   	 && (unsigned char)str1[i] == (unsigned char)str2[i] && i < n - 1)
+		&& (unsigned char)str1[i] == (unsigned char)str2[i] && i < n - 1)
 		i++;
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }

@@ -6,14 +6,14 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/06 15:34:04 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/06 15:34:56 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:44:39 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /// another ft_atoi
-int		ft_getnbr(char *str)
+int	ft_getnbr(char *str)
 {
 	size_t	i;
 	int		result;

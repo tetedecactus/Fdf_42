@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:19:26 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/08/03 11:03:26 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:56:30 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strdup(const char *src)
 	return (dest);
 } */
 
-char				*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
 	char			*s2;
 	size_t			l;

@@ -6,57 +6,57 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:10:01 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/16 11:40:22 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/20 11:17:45 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	shift_key(int key, fdf *data)
+void	shift_key(int key, t_fdf *data)
 {
-	if (key == 123)
-		data->shift_x -= 10;
-	if (key == 124)
-		data->shift_x += 10;
-	if (key == 125)
-		data->shift_y += 10;
-	if (key == 126)
-		data->shift_y -= 10;
+	if (key == LEFT)
+		data->move.shift_x -= 10;
+	if (key == RIGHT)
+		data->move.shift_x += 10;
+	if (key == DOWN)
+		data->move.shift_y += 10;
+	if (key == UP)
+		data->move.shift_y -= 10;
 	draw(data);
 }
 
-void	projection_key(int key, fdf *data)
+void	projection_key(int key, t_fdf *data)
 {
-	if (key == 37)
-		data->projection -= 1;
-	if (key == 46)
-		data->projection += 1;
+	if (key == ZOOM_OUT)
+		data->move.projection -= 1;
+	if (key == ZOOM_IN)
+		data->move.projection += 1;
 	draw(data);
 }
 
-void	rotation_key(int key, fdf *data)
+void	rotation_key(int key, t_fdf *data)
 {
 	if (key == 8)
-		data->rotation_cos += 0.2;
+		data->move.rotation_cos += 0.2;
 	if (key == 1)
-		data->rotation_sin += 0.2;
+		data->move.rotation_sin += 0.2;
 	if (key == 0)
-		data->rotation_cos -= 0.2;
+		data->move.rotation_cos -= 0.2;
 	if (key == 7)
-		data->rotation_sin -= 0.2;
+		data->move.rotation_sin -= 0.2;
 	draw(data);
 }
 
-void	zoom_key(int key, fdf *data)
+void	zoom_key(int key, t_fdf *data)
 {
 	if (key == 24)
-		data->zoom += 1;
+		data->move.zoom += 1;
 	if (key == 27)
-		data->zoom -= 1;
+		data->move.zoom -= 1;
 	draw(data);
 }
 
-int	check_key(int key, fdf *data)
+int	check_key(int key, t_fdf *data)
 {
 	if (key >= 123 && key <= 126)
 		shift_key(key, data);
@@ -68,7 +68,7 @@ int	check_key(int key, fdf *data)
 		zoom_key(key, data);
 	if (key == 53)
 	{
-		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		exit(0);
 	}
 	return (0);

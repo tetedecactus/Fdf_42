@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 13:53:21 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/08/03 14:14:16 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:51:02 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_putnbr_long(long nb)
 	}
 	if (nb > 9)
 	{
-		ft_putnbr_long(nb /10);
+		ft_putnbr_long(nb / 10);
 		nb %= 10;
 	}
 	nb_bytes += ft_putchar_int(nb + '0');

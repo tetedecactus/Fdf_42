@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:05:32 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/15 09:16:58 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 09:01:26 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,16 @@
 //     return (width);
 // }
 
-int width_counter(char *line, char separator)
+int	width_counter(char *line, char separator)
 {
-    int i;
-    char **number_in_lines;
-    
-    (void)separator;
-    number_in_lines = ft_split(line, ' ');
-    i = 0;
-    while (number_in_lines[i])
-        free(number_in_lines[i++]);
-    free(number_in_lines);
-    return (i);    
+	int		i;
+	char	**number_in_lines;
+
+	(void)separator;
+	number_in_lines = ft_split(line, ' ');
+	i = 0;
+	while (number_in_lines[i])
+		free(number_in_lines[i++]);
+	free(number_in_lines);
+	return (i);
 }

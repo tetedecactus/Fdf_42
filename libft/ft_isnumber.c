@@ -6,13 +6,13 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 13:42:22 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/09/29 13:44:51 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 08:46:29 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isnumber(int c)
+int	ft_isnumber(int c)
 {
-    return (c >= INT_MIN && c <= INT_MAX);
+	return (c >= INT_MIN && c <= INT_MAX);
 }

@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/11/16 12:08:46 by olabrecq         ###   ########.fr        #
+#    Updated: 2021/11/22 08:30:29 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,33 +50,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re all
-
-# # # entre cflags et OBJS ${FRAMEWORKS}
-
-# FRAMEWORKS=-framework OpenGL -framework AppKit
-# FLAGS=-Werror -Wextra -Wall -lmlx
-# NAME=fdf
-# SRC=./srcs/fdf.c \
-# 	./srcs/read_file.c \
-#  	./srcs/minilibx_function.c \
-#  	./srcs/draw.c \
-# INCLUDES=libft/libft.a minilibx_macos/libmlx.a
-
-# all: $(NAME)
-
-# $(NAME): $(OBJ)
-# 	@make -C libft/
-# 	@make -C minilibx_macos/
-# 	gcc -lmlx -framework OpenGL -framework AppKit -o $(NAME)
-# %.o: %.c
-# 	$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
-
-# clean:
-# 	@make -C libft/ clean
-# 	@make -C minilibx_macos/ clean
-
-# fclean: clean
-# 	/bin/rm -f $(NAME)
-# 	@make -C libft/ fclean
-
-# re: fclean all

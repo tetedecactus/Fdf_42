@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/28 12:00:33 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/16 11:40:24 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/23 10:22:43 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,47 +48,58 @@ t_point	*fill_line(t_point **matrix, int height, int width, char *line)
 	return (*matrix);
 }
 
-t_point	**alloc_matrix(fdf *data)
+t_point	**alloc_matrix(t_fdf *data)
 {
 	t_point	**temp;
 	int		height;
 	int		i;
 
 	i = 0;
-	height = data->map_height;
-	temp = (t_point **)malloc(sizeof(t_point *) * (data->map_height + 1));
+	height = data->info.map_height;
+	temp = (t_point **)malloc(sizeof(t_point *) * (data->info.map_height + 1));
 	while (i <= height)
 	{
-		temp[i] = (t_point *)malloc(sizeof(t_point) * (data->map_width[i] + 1));
+		temp[i] = (t_point *)malloc(sizeof(t_point)
+				* (data->info.map_width[i] + 1));
 		i++;
 	}
 	return (temp);
 }
 
-t_point	**create_fdf_matrix(char *file_name, fdf *data)
+void	create_fdf_matrix_extension(char *file_name, t_fdf *data, int fd)
 {
-	int		fd;
 	char	*line;
 	int		height;
 
 	height = 0;
-	fd = open(file_name, O_RDONLY);
-	init_matrix(data->matrix[height]);
-	if (fd == -1)
-		error_message(4);
 	while (get_next_line(fd, &line) > 0)
 	{
 		if (!ft_strncmp(file_name, "test_maps/pylone.fdf",
 				ft_strlen("test_maps/pylone.fdf")))
 			data->matrix[height] = fill_line_2(&(data->matrix[height]), height,
-					data->map_width, line);
+					data->info.map_width, line);
 		else
+		{
 			data->matrix[height] = fill_line(&(data->matrix[height]),
-					height, *data->map_width, line);
+					height, *data->info.map_width, line);
+		}
 		free(line);
 		height++;
 	}
 	free(line);
+}
+
+t_point	**create_fdf_matrix(char *file_name, t_fdf *data)
+{
+	int		fd;
+	int		height;
+
+	height = 0;
+	fd = open(file_name, O_RDWR);
+	if (fd == -1)
+		error_message(4);
+	init_matrix(data->matrix[height]);
+	create_fdf_matrix_extension(file_name, data, fd);
 	if (close(fd))
 		error_message(5);
 	return (data->matrix);

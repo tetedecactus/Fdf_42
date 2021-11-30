@@ -6,25 +6,25 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:32:43 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/16 11:45:33 by olabrecq         ###   ########.fr       */
+/*   Updated: 2021/11/22 10:55:59 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	matrix_the_fifth_delallocated(fdf *data)
+void	matrix_the_fifth_delallocated(t_fdf *data)
 {
 	int	i;
 	int	height;
 
-	height = data->map_height;
+	height = data->info.map_height;
 	i = 0;
 	while (i < height)
 		free(data->matrix[i++]);
 	free(data->matrix);
 }
 
-void	get_height_n_width_extension(int fd, char *line, fdf *data)
+void	get_height_n_width_extension(int fd, char *line, t_fdf *data)
 {
 	int		old_width;
 	int		i;
@@ -38,24 +38,24 @@ void	get_height_n_width_extension(int fd, char *line, fdf *data)
 		if (!i)
 		{
 			init_map(data, old_width);
-			data->map_width[0] = old_width;
+			data->info.map_width[0] = old_width;
 			i++;
 		}
 		else
-			data->map_width[i++] = width_counter(line, ' ');
-		data->map_height++;
+			data->info.map_width[i++] = width_counter(line, ' ');
+		data->info.map_height++;
 		free(line);
 	}
 	free(line);
 }
 
-void	get_height_n_width(char *file_name, fdf *data)
+void	get_height_n_width(char *file_name, t_fdf *data)
 {
 	int		fd;
 	char	*line;
 
 	line = NULL;
-	fd = open(file_name, O_RDONLY);
+	fd = open(file_name, O_RDWR);
 	if (fd <= 0)
 		error_message(4);
 	get_height_n_width_extension(fd, line, data);
@@ -65,10 +65,10 @@ void	get_height_n_width(char *file_name, fdf *data)
 
 int	main(int argc, char **argv)
 {
-	fdf	*data;
+	t_fdf	*data;
 
 	data = NULL;
-	data = (fdf *)malloc(sizeof(fdf));
+	data = (t_fdf *)malloc(sizeof(t_fdf));
 	if (argc != 2)
 		error_message(2);
 	get_height_n_width(argv[1], data);
