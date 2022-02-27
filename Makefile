@@ -22,7 +22,7 @@ MLX_LINUX	= 	$(LIB)/minilibx_linux
 MLX_MAC		= 	$(LIB)/minilibx_mac
 
 CC 			= gcc
-CFLAGS 		= -g -Imlx -Wall -Wextra -Werror
+CFLAGS 		= -Wall -Wextra -Werror -g
 
 RM			=	rm -rf
 MK			=	mkdir
@@ -38,7 +38,7 @@ CFILES 		= 	fdf.c \
 				draw_extension.c \
 				set_function.c \
 
-# INCLUDES 	= lib/libft/libft.a /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
+INCLUDES 	= lib/libft/libft.h /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
 
 HFILES		= fdf.h
 
@@ -64,8 +64,8 @@ $(OBJ):
 			@$(MK) $(OBJ)
 
 linux:	$(OBJ) $(OBJS)
-		# @$(MAKE_DIR) $(LIBFT)
-		# @$(MAKE_DIR) $(MLX_LINUX)
+		@$(MAKE_DIR) $(LIBFT)
+		@$(MAKE_DIR) $(MLX_LINUX)
 		$(CC) $(OBJS) -L$(LIBFT) -L$(MLX_LINUX) $(FRAMEWORKS_LINUX) -o $(NAME)
 
 clean:
