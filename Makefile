@@ -10,43 +10,118 @@
 #                                                                              #
 # **************************************************************************** #
 
-FRAMEWORKS = -lmlx -framework OpenGL -framework AppKit
-
 NAME = fdf
 
-SRCS = 	./srcs/fdf.c \
-		./srcs/read_file.c \
-		./srcs/draw.c \
-		./srcs/init.c \
-		./srcs/key_touch.c \
-		./srcs/draw_extension.c \
-		./srcs/set_function.c \
-		
-INCLUDES = libft/libft.a minilibx_macos/libmlx.a
+SRC 		= 	srcs
+OBJ 		= 	obj
+INC 		= 	includes
 
-OBJS = ${SRCS:.c=.o}
+LIB 		=	lib
+LIBFT		=	$(LIB)/libft
+MLX_LINUX	= 	$(LIB)/minilibx_linux
+MLX_MAC		= 	$(LIB)/minilibx_mac
 
-HEADER	= includes/fdf.h 
+CC 			= gcc
+CFLAGS 		= -g -Imlx -Wall -Wextra -Werror
 
-CC = gcc 
+RM			=	rm -rf
+MK			=	mkdir
+NM			=	norminette
 
-CFLAGS = -g -Imlx -Wall -Wextra -Werror
+MAKE_DIR	= $(MAKE) --no-print-directory -C
 
-all: ${NAME}
+CFILES 		= 	fdf.c \
+				read_file.c \
+				draw.c \
+				init.c \
+				key_touch.c \
+				draw_extension.c \
+				set_function.c \
 
-${NAME}: ${OBJS}
-	    @make -C libft/
-		@make -C minilibx_macos/
-		${CC} ${CFLAGS} ${INCLUDES} ${FRAMEWORKS} ${OBJS}  -o ${NAME} 
+# INCLUDES 	= lib/libft/libft.a /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
 
-clean: 
-		rm -f ${OBJS}
-		@make -C libft/ clean
-		@make -C minilibx_macos/ clean 
+HFILES		= fdf.h
+
+OFILES 		= $(CFILES:.c=.o)
+
+SRCS		=	$(addprefix $(SRC)/, $(CFILES))
+HEADERS		=	$(addprefix $(INC)/, $(HFILES))
+OBJS		=	$(addprefix $(OBJ)/, $(OFILES))
+
+FRAMEWORKS 			= -lmlx -framework OpenGL -framework AppKit
+FRAMEWORKS_LINUX 	= -lft -lmlx -lm -lXext -lbsd -lX11
+
+$(OBJ)/%.o:	$(SRC)/%.c
+			$(CC) $(CFLAGS) -I$(INC) -I$(LIB) -c $< -o $@
+
+all: 		$(NAME)
+
+$(NAME): 	$(OBJ) $(OBJS)
+			@$(MAKE_DIR) $(LIBFT)
+			@$(MAKE_DIR) $(MLX_MAC)
+			$(CC) $(INCLUDES) $(FRAMEWORKS) $(OBJS)  -o $(NAME)
+$(OBJ):
+			@$(MK) $(OBJ)
+
+linux:	$(OBJ) $(OBJS)
+		# @$(MAKE_DIR) $(LIBFT)
+		# @$(MAKE_DIR) $(MLX_LINUX)
+		$(CC) $(OBJS) -L$(LIBFT) -L$(MLX_LINUX) $(FRAMEWORKS_LINUX) -o $(NAME)
+
+clean:
+		@$(MAKE_DIR) $(LIBFT) clean
+		@$(MAKE_DIR) $(MLX_LINUX) clean
+		@$(RM) $(OBJS)
+		@$(RM) $(OBJ)
+
 fclean: clean
-		rm -f ${NAME}
-		@make -C libft/ fclean
+		@$(MAKE_DIR) $(LIBFT) fclean
+		@$(RM) $(NAME)
 
 re: fclean all
 
 .PHONY: clean fclean re all
+
+# -------------------------------------------------------------
+
+# FRAMEWORKS = -lmlx -framework OpenGL -framework AppKit
+# FRAMEWORKS_LINUX 	= -lft -lmlx -lm -lXext -lbsd -lX11
+
+# NAME = fdf
+
+# SRCS = 	./srcs/fdf.c \
+# 		./srcs/read_file.c \
+# 		./srcs/draw.c \
+# 		./srcs/init.c \
+# 		./srcs/key_touch.c \
+# 		./srcs/draw_extension.c \
+# 		./srcs/set_function.c \
+		
+# INCLUDES = /lib/libft/libft.a /lib/minilibx_linux/libmlx.a
+
+# OBJS = ${SRCS:.c=.o}
+
+# HEADER	= includes/fdf.h 
+
+# CC = gcc 
+
+# CFLAGS = -g -Imlx -Wall -Wextra -Werror
+
+# all: ${NAME}
+
+# ${NAME}: ${OBJS}
+# 	    @make -C /lib/libft/
+# 		@make -C minilibx_macos/
+# 		${CC} ${CFLAGS} ${INCLUDES} ${FRAMEWORKS_LINUX} ${OBJS}  -o ${NAME} 
+
+# clean: 
+# 		rm -f ${OBJS}
+# 		@make -C /lib/libft/ clean
+# 		@make -C minilibx_macos/ clean 
+# fclean: clean
+# 		rm -f ${NAME}
+# 		@make -C libft/ fclean
+
+# re: fclean all
+
+# .PHONY: clean fclean re all
