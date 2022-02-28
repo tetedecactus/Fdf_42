@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/30 11:54:01 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/02/27 15:02:12 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,5 @@ void	draw_matrix(t_fdf *data)
 	draw(data);
 	mlx_key_hook(data->mlx.win_ptr, check_key, data);
 	mlx_loop(data->mlx.mlx_ptr);
-	free(data);
+	free(data); 
 }
