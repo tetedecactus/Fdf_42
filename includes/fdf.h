@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <string.h>
 # include <limits.h>
-# include <mlx.h>
-# include "../libft/libft.h"
+# include </home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h>
+# include "../lib/libft/libft.h"
 // # include "../minilibx_macos/mlx.h"
 
 # define WIDTH 1920
