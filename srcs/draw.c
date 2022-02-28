@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/02/23 10:57:18 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/02/28 11:02:39 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	bresenham_x(float x, float y, float x1, t_fdf *data)
 	x1 *= data->move.zoom;
 	y1 *= data->move.zoom;
 	data->move.color = set_color(data->move.z, data->move.z1);
-	isometric(&x, &y, data->move.z, data);
-	isometric(&x1, &y1, data->move.z1, data);
+	// isometric(&x, &y, data->move.z, data);
+	// isometric(&x1, &y1, data->move.z1, data);
 	x += data->move.shift_x;
 	y += data->move.shift_y;
 	x1 += data->move.shift_x;
@@ -61,8 +61,8 @@ void	bresenham_y(float x, float y, float y1, t_fdf *data)
 	x1 *= data->move.zoom;
 	y1 *= data->move.zoom;
 	data->move.color = set_color(data->move.z, data->move.z1);
-	isometric(&x, &y, data->move.z, data);
-	isometric(&x1, &y1, data->move.z1, data);
+	// isometric(&x, &y, data->move.z, data);
+	// isometric(&x1, &y1, data->move.z1, data);
 	x += data->move.shift_x;
 	y += data->move.shift_y;
 	x1 += data->move.shift_x;
@@ -116,4 +116,56 @@ void	draw_matrix(t_fdf *data)
 	mlx_key_hook(data->mlx.win_ptr, check_key, data);
 	mlx_loop(data->mlx.mlx_ptr);
 	free(data);
+}
+
+
+//----------------------
+// // Draw minimap
+// 	int minmapSize = (int)(screenHeight * 0.25) / mapHeight;
+
+// 	for (int x = 0; x < minmapSize * mapHeight + 10; x++)
+// 	for (int y = 0; y < minmapSize * mapWidth + 10; y++)
+// 		my_mlx_pixel_put(lode->img[1], y, x, 153);
+
+// 	for (int x = 0; x < mapHeight; x++)
+// 	for (int y = 0; y < mapWidth; y++){
+// 		for (int i = 0; i < minmapSize; i++)
+// 		for (int j = 0; j < minmapSize; j++){
+// 			if (worldMap[y][x])
+// 				my_mlx_pixel_put(lode->img[1], 5 + (x * minmapSize) + i, 5 + (y * minmapSize) + j, 0);
+// 			else
+// 				my_mlx_pixel_put(lode->img[1], 5 + (x * minmapSize) + i, 5 + (y * minmapSize) + j, RGB_White);
+// 		}
+// 	}
+
+// 	int posPlayerX = 5 + (int)(lode->posX * minmapSize) - 3;
+// 	int posPlayerY = 5 + (int)(lode->posY * minmapSize) - 3;
+
+// 	for (int x = 0; x < 7; x++)
+// 	for (int y = 0; y < 7; y++)
+		// my_mlx_pixel_put(lode->img[1], posPlayerY + y, posPlayerX + x, RGB_Red);
+
+
+
+void	draw_minimap(t_cub *cub)
+{
+    int	x;
+    int	y;
+	
+	clear_image(cub->img[0]->endian);
+	y = 0;
+	while (y < cub->map_height)
+	{
+		x = 0;
+		while (x < cub->map_width)
+		{
+			if (x < cub->map_width - 1)
+				bresenham_x(x, y, x + 1, cub);
+			if (y < cub->map_height - 1)
+				bresenham_y(x, y, y + 1, cub);
+			x++;
+		}
+		y++;
+	}
+	mlx_put_image_to_window(cub->mlx, cub->win, cub->img[0]->img, 0, 0);
 }
