@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/11/22 08:30:29 by olabrecq         ###   ########.fr        #
+#    Updated: 2022/02/28 09:30:34 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ CFILES 		= 	fdf.c \
 				draw_extension.c \
 				set_function.c \
 
-INCLUDES 	= lib/libft/libft.h /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
+INCLUDES 	= lib/libft/libft.h /Users/olabrecq/Project/fdf/lib/minilibx_mac/mlx.h
+# /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
 
 HFILES		= fdf.h
 
@@ -59,7 +60,8 @@ all: 		$(NAME)
 $(NAME): 	$(OBJ) $(OBJS)
 			@$(MAKE_DIR) $(LIBFT)
 			@$(MAKE_DIR) $(MLX_MAC)
-			$(CC) $(INCLUDES) $(FRAMEWORKS) $(OBJS)  -o $(NAME)
+			@gcc -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+# $(CC) $(INCLUDES) $(OBJS) -L$(LIBFT) -L$(MLX_MAC) $(FRAMEWORKS) -o $(NAME)
 $(OBJ):
 			@$(MK) $(OBJ)
 

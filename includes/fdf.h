@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/02/23 10:57:04 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/02/28 09:13:43 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <fcntl.h>
 # include <string.h>
 # include <limits.h>
-# include </home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h>
 # include "../lib/libft/libft.h"
-// # include "../minilibx_macos/mlx.h"
+// # include </home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h>
+# include "/Users/olabrecq/Project/fdf/lib/minilibx_mac/mlx.h"
 
 # define WIDTH 1920
 # define HEIGHT 1080
