@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 11:10:01 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/20 11:17:45 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/03/01 08:55:20 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,37 @@ void	zoom_key(int key, t_fdf *data)
 	draw(data);
 }
 
+// Mac keys
+// int	check_key(int key, t_fdf *data)
+// {
+// 	if (key >= 123 && key <= 126)
+// 		shift_key(key, data);
+// 	if (key == 37 || key == 46)
+// 		projection_key(key, data);
+// 	if (key == 8 || key == 7 || key == 0 || key == 1)
+// 		rotation_key(key, data);
+// 	if (key == 24 || key == 27)
+// 		zoom_key(key, data);
+// 	if (key == 53)
+// 	{
+// 		mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
+// 		exit(0);
+// 	}
+// 	return (0);
+// }
+
+// Linuix key
 int	check_key(int key, t_fdf *data)
 {
-	if (key >= 123 && key <= 126)
+	if (key >= 65361 && key <= 65264)
 		shift_key(key, data);
-	if (key == 37 || key == 46)
+	if (key == 0 || key == 2)
 		projection_key(key, data);
 	if (key == 8 || key == 7 || key == 0 || key == 1)
 		rotation_key(key, data);
 	if (key == 24 || key == 27)
 		zoom_key(key, data);
-	if (key == 53)
+	if (key == 65307)
 	{
 		mlx_destroy_window(data->mlx.mlx_ptr, data->mlx.win_ptr);
 		exit(0);

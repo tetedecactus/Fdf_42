@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/02/28 18:43:30 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/03/01 08:51:27 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@
 // # define ZOOM_IN 46
 
 //Linux keys
-# define ESC 0xff1b
-# define UP 273
-# define DOWN 274
-# define LEFT 276
-# define RIGHT 275
-# define ZOOM_OUT 293
-# define ZOOM_IN 292
+# define ESC 		65307
+# define RIGHT		65363
+# define LEFT		65361  
+# define DOWN		65362 
+# define UP			65364 
+# define ZOOM_OUT 		0
+# define ZOOM_IN 		2
 
 typedef struct s_point
 {
