@@ -6,7 +6,7 @@
 #    By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 13:03:04 by olabrecq          #+#    #+#              #
-#    Updated: 2021/11/22 08:30:29 by olabrecq         ###   ########.fr        #
+#    Updated: 2022/02/28 15:32:35 by olabrecq         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ CFILES 		= 	fdf.c \
 				draw_extension.c \
 				set_function.c \
 
+# INCLUDES 	= lib/libft/libft.a /Users/olabrecq/Project/fdf/lib/minilibx_mac/libmlx.a
 INCLUDES 	= lib/libft/libft.h /home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h
 
 HFILES		= fdf.h
@@ -59,7 +60,8 @@ all: 		$(NAME)
 $(NAME): 	$(OBJ) $(OBJS)
 			@$(MAKE_DIR) $(LIBFT)
 			@$(MAKE_DIR) $(MLX_MAC)
-			$(CC) $(INCLUDES) $(FRAMEWORKS) $(OBJS)  -o $(NAME)
+			${CC} ${CFLAGS} ${INCLUDES} ${FRAMEWORKS} ${OBJS}  -o ${NAME} 
+
 $(OBJ):
 			@$(MK) $(OBJ)
 
@@ -85,7 +87,6 @@ re: fclean all
 # -------------------------------------------------------------
 
 # FRAMEWORKS = -lmlx -framework OpenGL -framework AppKit
-# FRAMEWORKS_LINUX 	= -lft -lmlx -lm -lXext -lbsd -lX11
 
 # NAME = fdf
 
@@ -97,7 +98,7 @@ re: fclean all
 # 		./srcs/draw_extension.c \
 # 		./srcs/set_function.c \
 		
-# INCLUDES = /lib/libft/libft.a /lib/minilibx_linux/libmlx.a
+# INCLUDES = lib/libft/libft.a lib/minilibx_macos/libmlx.a
 
 # OBJS = ${SRCS:.c=.o}
 
@@ -110,13 +111,13 @@ re: fclean all
 # all: ${NAME}
 
 # ${NAME}: ${OBJS}
-# 	    @make -C /lib/libft/
+# 	    @make -C libft/
 # 		@make -C minilibx_macos/
-# 		${CC} ${CFLAGS} ${INCLUDES} ${FRAMEWORKS_LINUX} ${OBJS}  -o ${NAME} 
+# 		${CC} ${CFLAGS} ${INCLUDES} ${FRAMEWORKS} ${OBJS}  -o ${NAME} 
 
 # clean: 
 # 		rm -f ${OBJS}
-# 		@make -C /lib/libft/ clean
+# 		@make -C libft/ clean
 # 		@make -C minilibx_macos/ clean 
 # fclean: clean
 # 		rm -f ${NAME}

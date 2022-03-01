@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 10:27:30 by olabrecq          #+#    #+#             */
-/*   Updated: 2021/11/20 11:22:21 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/02/28 18:43:30 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <fcntl.h>
 # include <string.h>
 # include <limits.h>
-# include </home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h>
 # include "../lib/libft/libft.h"
-// # include "../minilibx_macos/mlx.h"
+# include </home/olabrecq/projet42/fdf/lib/minilibx_linux/mlx.h>
+// # include "/Users/olabrecq/Project/fdf/lib/minilibx_mac/mlx.h"
 
 # define WIDTH 1920
 # define HEIGHT 1080
@@ -31,13 +31,24 @@
 # define HEIGHT_IMG 3240
 # define RED 0xff0000
 # define WHITE 0xffffff
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define ZOOM_OUT 37
-# define ZOOM_IN 46
+
+//Mac Keys
+// # define ESC 53
+// # define UP 126
+// # define DOWN 125
+// # define LEFT 123
+// # define RIGHT 124
+// # define ZOOM_OUT 37
+// # define ZOOM_IN 46
+
+//Linux keys
+# define ESC 0xff1b
+# define UP 273
+# define DOWN 274
+# define LEFT 276
+# define RIGHT 275
+# define ZOOM_OUT 293
+# define ZOOM_IN 292
 
 typedef struct s_point
 {

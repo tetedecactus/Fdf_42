@@ -6,7 +6,7 @@
 /*   By: olabrecq <olabrecq@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 11:05:37 by olabrecq          #+#    #+#             */
-/*   Updated: 2022/02/27 15:02:12 by olabrecq         ###   ########.fr       */
+/*   Updated: 2022/02/28 15:33:15 by olabrecq         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,3 +117,39 @@ void	draw_matrix(t_fdf *data)
 	mlx_loop(data->mlx.mlx_ptr);
 	free(data); 
 }
+
+// void bresenham(float x, float y, float x1, float y1, fdf *data)
+// {
+// 	float x_step;
+// 	float y_step;
+// 	int max;
+// 	int z;
+// 	int z1;
+
+// 	z = (data->matrix[(int)y][(int)x].z) * (data->projection);
+// 	z1 = (data->matrix[(int)y1][(int)x1].z) * (data->projection);
+// 	x *= data->zoom;
+// 	y *= data->zoom;
+// 	x1 *= data->zoom;
+// 	y1 *= data->zoom;
+// 	data->color = (z || z1) ? MYSTERE : WHITE;
+// 	isometric(&x, &y, z, data);
+// 	isometric(&x1, &y1, z1, data);
+// 	x += data->shift_x;
+// 	y += data->shift_y;
+// 	x1 += data->shift_x;
+// 	y1 += data->shift_y;
+// 	x_step = x1 - x;
+// 	y_step = y1 - y;
+// 	max = fmax(mod(x_step), mod(y_step));
+// 	x_step /= max;
+// 	y_step /= max;
+// 	while ((int)(x - x1) || (int)(y - y1))
+// 	{
+// 		//mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, data->color);
+// 		// my_mlx_pixel_put(data, x, y, data->color);
+// 		my_mlx_pixel_put(data, x, y, WHITE);
+// 		x += x_step;
+// 		y += y_step;
+// 	}
+// }
